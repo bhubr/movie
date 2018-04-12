@@ -98,3 +98,28 @@ Puis on peut accéder à l'application via http://localhost:4000.
 
 
 ### 3. Créer une application JS **front-end** (client)
+
+On va maintenant commencer la transition des fichiers HTML statiques vers une application
+JS single-page.
+
+On va commencer par créer un `app.js` dans le répertoire `js`.
+
+Dans `index.html`, on va extraire les 3 parties situées dans la div `#main`, délimitées
+par les commentaires `<!-- navbar -->`,  `<!-- content -->` et `<!-- footer -->`.
+
+Chacune des 3 parties est mise dans une `const` dans le fichier `app.js`. Puis on a une
+fonction `render` qui effectue le rendu de la page, à l'identique, en injectant la navbar, le contenu
+central, et le footer, dans la propriété `innerHTML` de la div `#main`.
+
+```javascript
+const render = contentHtml => {
+  const mainDiv = document.getElementById('main')
+  mainDiv.innerHTML = navbarHtml + contentHtml + footerHtml
+}
+
+render(homeHtml)
+```
+
+Cette fonction doit être appelée, sinon la page reste blanche !
+
+**Si besoin de détails**, on peut retrouver cela dans le commit intitulé `Transfer content parts of index to JS app`, sur la branche `step03-frontend-app-dev`.
