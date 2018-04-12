@@ -25,8 +25,6 @@ Cela utilise le système de tags de Git, qui permet tout simplement de mettre un
 pour l'identifier plus facilement.
 
 ### 2. Créer une application JS **back-end** (serveur Node.js)
-<<<<<<< HEAD
-=======
 
 On a créé une branche `step-02-backend-app-dev` depuis `dev`. On va créer un serveur
 Node.js avec Express.
@@ -99,5 +97,68 @@ On lance le serveur en restant dans le répertoire racine du dépôt (`movie`), 
 Puis on peut accéder à l'application via http://localhost:4000.
 
 
->>>>>>> dev
 ### 3. Créer une application JS **front-end** (client)
+
+Travail sur la branche `step03-frontend-app-dev` (si vous voulez les détails des commits).
+
+On va maintenant commencer la transition des fichiers HTML statiques vers une application
+JS single-page.
+
+On va commencer par créer un `app.js` dans le répertoire `js`.
+
+#### 3.1. Transfert des éléments de l'index vers l'app JS
+
+Dans `index.html`, on va extraire les 3 parties situées dans la div `#main`, délimitées
+par les commentaires `<!-- navbar -->`,  `<!-- content -->` et `<!-- footer -->`.
+
+Chacune des 3 parties est mise dans une `const` dans le fichier `app.js`. Puis on a une
+fonction `render` qui effectue le rendu de la page, à l'identique, en injectant la navbar, le contenu
+central, et le footer, dans la propriété `innerHTML` de la div `#main`.
+
+```javascript
+const render = contentHtml => {
+  const mainDiv = document.getElementById('main')
+  mainDiv.innerHTML = navbarHtml + contentHtml + footerHtml
+}
+
+render(homeHtml)
+```
+
+Cette fonction doit être appelée, sinon la page reste blanche !
+
+**Si besoin de détails**, on peut retrouver cela dans le commit intitulé `Transfer content parts of index to JS app`, sur la branche `step03-frontend-app-dev`.
+
+#### 3.2. Transfert du contenu de "About"
+
+Ensuite on fait la même chose avec la partie de contenu de la page "About". Puis on peut purement et simplement supprimer le `about.html`:
+
+    git rm about.html
+
+Pour l'instant, on laisse les autres pages, celles des films, pour plus tard.
+
+#### 3.3. Gérer les évènements
+
+Si on en reste là, la page "About" n'est plus disponible ! On va pallier à cela dans l'application JS. On va créer deux fonctions pour afficher respectivement les pages "Home" et "About". C'est une petite restructuration par rapport au fait qu'on appelait directement `render(homeHtml)` avant.
+
+```javascript
+
+const showHome = () => {
+  render(homeHtml)
+}
+
+const showAbout = () => {
+  render(aboutHtml)
+}
+
+showHome()
+```
+
+La fonction `render()` n'est pas modifiée. Ces deux fonctions ne font qu'envoyer le "bon" HTML à la fonction `render()`. Ensuite il faut appeler `showHome()` pour montrer l'index.
+
+Le commit est intitulé "Add functions to render each page".
+
+**Ensuite, la gestion d'évènements**. On va d'abord montrer une solution qui est loin d'être idéale.
+Cependant elle permet d'illustrer les évènements dans le navigateur. Si besoin, c'est dans le commit
+intitulé "Add click event listeners on navbar links".
+
+C'est terminé pour cette étape, mais on va améliorer le système de navigation à la prochaine.
