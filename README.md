@@ -123,3 +123,5 @@ render(homeHtml)
 Cette fonction doit être appelée, sinon la page reste blanche !
 
 **Si besoin de détails**, on peut retrouver cela dans le commit intitulé `Transfer content parts of index to JS app`, sur la branche `step03-frontend-app-dev`.
+
+Ensuite on fait la même chose avec la partie de contenu de la page "About".

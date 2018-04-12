@@ -48,6 +48,22 @@ const homeHtml = /* @html */`
 
 </div>`
 
+const aboutHtml = /* @html */`
+<div id="content" class="container">
+
+  <!-- Example row of columns -->
+  <div class="row">
+    <div class="col-md-12">
+      <h1>About</h1>
+      <div class="movie-page">
+        <p>This is a site about movies.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+`
+
 // Footer (commun à toutes les pages)
 const footerHtml = /* @html */`
 <footer>
