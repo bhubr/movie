@@ -99,6 +99,8 @@ Puis on peut accéder à l'application via http://localhost:4000.
 
 ### 3. Créer une application JS **front-end** (client)
 
+Travail sur la branche `step03-frontend-app-dev` (si vous voulez les détails des commits).
+
 On va maintenant commencer la transition des fichiers HTML statiques vers une application
 JS single-page.
 
@@ -124,4 +126,25 @@ Cette fonction doit être appelée, sinon la page reste blanche !
 
 **Si besoin de détails**, on peut retrouver cela dans le commit intitulé `Transfer content parts of index to JS app`, sur la branche `step03-frontend-app-dev`.
 
-Ensuite on fait la même chose avec la partie de contenu de la page "About".
+Ensuite on fait la même chose avec la partie de contenu de la page "About". Puis on peut purement et simplement supprimer le `about.html`:
+
+    git rm about.html
+
+Pour l'instant, on laisse les autres pages, celles des films, pour plus tard. Si on en reste là, la page "About" n'est plus disponible !
+
+On va pallier à cela dans l'application JS. On va créer deux fonctions pour afficher respectivement les pages "Home" et "About":
+
+```javascript
+
+const showHome = () => {
+  render(homeHtml)
+}
+
+const showAbout = () => {
+  render(aboutHtml)
+}
+
+showHome()
+```
+
+La fonction `render()` n'est pas modifiée. Ces deux fonctions ne font qu'envoyer le "bon" HTML à la fonction `render()`. Ensuite il faut appeler `showHome()` pour montrer l'index.

@@ -84,4 +84,12 @@ const render = contentHtml => {
   mainDiv.innerHTML = navbarHtml + contentHtml + footerHtml
 }
 
-render(homeHtml)
+const showHome = () => {
+  render(homeHtml)
+}
+
+const showAbout = () => {
+  render(aboutHtml)
+}
+
+showHome()
