@@ -162,3 +162,39 @@ Cependant elle permet d'illustrer les évènements dans le navigateur. Si besoin
 intitulé "Add click event listeners on navbar links".
 
 C'est terminé pour cette étape, mais on va améliorer le système de navigation à la prochaine.
+
+
+
+### 4. Améliorer la navigation grâce à la librairie page.js
+
+Branche `step04-nav-page.js-dev` pour les commits détaillés.
+
+La gestion d'évènements mise en place précédemment n'est pas parfaite... Entre autres, on est obligé de
+remettre les gestionnaires d'évènements sur les éléments, après chaque rendu de la page.
+
+De plus, il y a un défaut fonctionnel difficilement admissible pour app web moderne : le clic sur un
+lien modifie bien l'affichage en cours, mais l'URL n'est pas modifiée dans la barre d'adresse, et on n'a
+pas d'historique de navigation dans la page !
+
+Ecrire nous-mêmes le code pour pallier à ce défaut serait assez long et complexe. C'est pourquoi on va utiliser
+une librairie qui va nous décharger de ce travail.
+
+> Utiliser une librairie externe est une démarche courante. Il faut juste savoir pouquoi on le fait ! Mais cela évite notamment de réinventer la roue, de chercher à résoudre soi-même un problème que d'autres ont déjà rencontré, et résolu de façon élégante.
+
+On va utiliser la librairie [page.js](http://visionmedia.github.io/page.js/) qui permet de faire du "routage côté client".
+C'est le même principe que pour Express côté serveur. Pour rappel avec Express, on associe une fonction à chaque URL. La fonction
+va gérer toutes les requêtes sur l'URL à laquelle elle est associée.
+
+```javascript
+app.get('/an-url', (req, res) => { res.send('Hello') })
+app.get('/another-url', (req, res) => { res.send('Goodbye') })
+```
+
+page.js utilise le même principe mais côté client. On associe une fonction à une URL. Exemple:
+
+```javascript
+page('/', showHome)
+page('/about', showAbout)
+```
+
+On va modifier le JS pour utiliser page.js. Concrètement, deux fichiers vont être modifiés.
