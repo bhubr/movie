@@ -159,4 +159,6 @@ Le commit est intitulé "Add functions to render each page".
 
 **Ensuite, la gestion d'évènements**. On va d'abord montrer une solution qui est loin d'être idéale.
 Cependant elle permet d'illustrer les évènements dans le navigateur. Si besoin, c'est dans le commit
-intitulé "Add click event listeners on navbar links"
+intitulé "Add click event listeners on navbar links".
+
+C'est terminé pour cette étape, mais on va améliorer le système de navigation à la prochaine.
