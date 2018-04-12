@@ -90,9 +90,11 @@ pour indiquer que notre application serveur dépend du module `express`.
 On crée ensuite l'application Node.js, qui essentiellement sert de serveur de fichiers
 statiques (aucune route n'est définie dans l'application Express).
 
-```javascript
+On lance le serveur en restant dans le répertoire racine du dépôt (`movie`), en lançant :
 
-```
+    node back/server
+
+Puis on peut accéder à l'application via http://localhost:4000.
 
 
 ### 3. Créer une application JS **front-end** (client)
