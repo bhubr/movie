@@ -10,7 +10,7 @@ rôles d'utilisateurs :
     * laisser une appréciation (note + commentaire) sur un film référencé
 * les administrateurs, qui peuvent gérer le site (suspendre un utilisateur ayant un comportement déplacé)
 
-On va procéder par étapes, mais comme c'est un exemple pour illustrer le modèle de données, **code**,
+On va procéder par étapes, mais comme c'est un exemple pour illustrer le modèle de données, le **code**,
 la gestion des branches Git et la structure de l'application, on n'a pas créé un backlog complet avant de démarrer.
 
 ## Etapes (à compléter)
